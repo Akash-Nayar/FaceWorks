@@ -31,5 +31,5 @@ def add_person(descriptor):
     #descrips = np.array([descriptor])   // Might not need
     value = [descriptor, [descriptor], 1]
 
-    with open("faceworks.pickle", mode="rb") as database:
+    with open("faceworks.pickle", mode="wb") as database:
         loaded_database.update({name : value})
