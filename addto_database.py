@@ -31,5 +31,7 @@ def add_person(descriptor):
     #descrips = np.array([descriptor])   // Might not need
     value = [descriptor, [descriptor], 1]
 
+    loaded_database[name] = value
+
     with open("faceworks.pickle", mode="wb") as database:
-        loaded_database.update({name : value})
+        pickle.dump(loaded_database, database, protocol=pickle.HIGHEST_PROTOCOL)
