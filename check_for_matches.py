@@ -40,14 +40,12 @@ def check_for_match(descriptor_vectors):
             # If the difference is less than the checkpoint value, match is set to True.
             # Otherwise, match is false.
             if diff < check:
-                ud.update(key, dv)
                 found.append(str(key))
                 matches.append(diff)
                 match = True
             # If match is true, the descriptor vector is then added to the database for the match.
         if match == True:
             people.append(found[np.argmin(matches)])
-    found.append(addb.add_person(dv))
     return "No people found"
 
 
