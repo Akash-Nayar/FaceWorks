@@ -24,5 +24,5 @@ def find_faces(image):
         shape = shape_predictor(pic, detections[i])
         descriptor = np.array(face_rec_model.compute_face_descriptor(pic, shape))
         d_vectors.append(descriptor)
-        
+
     return d_vectors

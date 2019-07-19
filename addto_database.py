@@ -30,3 +30,5 @@ def add_person(descriptor):
     value = [descriptor, [descriptor], 1]
     
     loaded_database.update({name : value})
+
+    return name
