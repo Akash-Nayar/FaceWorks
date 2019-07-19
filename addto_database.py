@@ -29,6 +29,7 @@ def add_person(descriptor):
     name = input("Please enter a name for this unidentified individual")
 
     #descrips = np.array([descriptor])   // Might not need
-    value = [descriptor, [descrips], 1]
-    
-    loaded_database.update({name : value})
+    value = [descriptor, [descriptor], 1]
+
+    with open("faceworks.pkl", mode="rb") as database:
+        loaded_database.update({name : value})
