@@ -20,7 +20,6 @@ def check_for_match(descriptor_vectors):
         database = pickle.load(opened_file)
 
     found = []
-
     d_vectors = descriptor_vectors
 
     for dv in d_vectors:

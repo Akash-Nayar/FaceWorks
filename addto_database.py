@@ -8,6 +8,7 @@ Created on Fri Jul 19 09:49:44 2019
 
 def add_person(descriptor):
     import pickle
+    import numpy as np
 
     """Docstring:
         
@@ -21,14 +22,16 @@ def add_person(descriptor):
     """
     
     # unpickling a dictionary
-    with open("faceworks.pkl", mode="rb") as database:
+    with open("faceworks.pickle", mode="rb") as database:
         loaded_database = pickle.load(database)
         
     #input the name given to the unkown person
     name = input("Please enter a name for this unidentified individual")
 
+    #descrips = np.array([descriptor])   // Might not need
     value = [descriptor, [descriptor], 1]
-    
-    loaded_database.update({name : value})
 
-    return name
+    loaded_database[name] = value
+
+    with open("faceworks.pickle", mode="wb") as database:
+        pickle.dump(loaded_database, database, protocol=pickle.HIGHEST_PROTOCOL)
