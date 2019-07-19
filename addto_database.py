@@ -6,7 +6,7 @@ Created on Fri Jul 19 09:49:44 2019
 """
 import pickle
 
-def addTo_database(descriptor):
+def add_to_database(descriptor):
      """Docstring:
         
         Parameters:
