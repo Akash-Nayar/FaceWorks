@@ -5,10 +5,10 @@ download_predictor()
 from dlib_models import models
 import numpy as np
 
-def find_faces(image):
+def find_faces(pic):
     """
     Returns a list of descriptor vectors for all faces found in an image
-    :param image: Takes an image to turn into one or more descriptor vectors
+    :param pic: Takes an image to turn into one or more descriptor vectors
     :return: list containing np.arrays that hold one or more descriptor vectors from the image passed in
     """
 
@@ -17,7 +17,7 @@ def find_faces(image):
     face_rec_model = models["face rec"]
     shape_predictor = models["shape predict"]
 
-    detections = list(face_detect(image))
+    detections = list(face_detect(pic))
 
     d_vectors = []
     for i in range(len(detections)):
