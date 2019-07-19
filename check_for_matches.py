@@ -4,12 +4,13 @@ def check_for_match(descriptor_vectors):
     vectors are similar, then it is concluded to be a match. Matched descriptor vectors are
     added for people. If the vector is unknown, then a new person is added to the database.
     :param descriptor_vectors: numpy.ndarray of size (128,)
-    :return: matchPerson: str, tells you the name of the match. Returns "unknown" if the person is not in the database.
+    :return: str, tells you the name of the match. Returns "unknown" if the person is not in the database.
     """
     import numpy as np
     import mean_face as mf
     import addto_database as addb
     import pickle
+    import update_database as ud
 
     #Set up a check value
     check = 20
@@ -39,34 +40,14 @@ def check_for_match(descriptor_vectors):
 
                 # If match is true, the descriptor vector is then added to the database for the match.
                 if match:
-
-                    #The code currently does not use this
-                    # Setting up values??
-                    vectors = value[1]
-                    vectorCount = value[2]
-
-                    # The descriptor vector is appended to the list of vectors, and the number of vectors is updated
-                    # A new mean vector is calculated and set.
-                    database[key][1].append(dv)
-                    database[key][2] += 1
-                    database[key][0] = mf.mean_face(database[key][1])
-
-                    # The database is then updated accordingly
-                    #!!!YOU ARE PROBABLY ACTUALLY GOING TO NEED THIS
-                    #database.update({key: value})
-
+                    ud.update(key, dv)
                     found.append(str(key))
-                    # matchPerson = "Your match is " + str(key)
+                    return f"We found {found}"
 
             # If the match is false, a new person is created in the database.
             if not match:
                 found.append(addb.add_person(dv))
-
-    #Returns unknown
-    if len(found) != 0:
-        return "We found " + found[i for i in range(len(found))]
-    else:
-        return "No people found"
+                return "No people found"
 
 
 

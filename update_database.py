@@ -15,7 +15,7 @@ def update(name, descriptor):
 
     loaded_database[name][1].append(descriptor)
     loaded_database[name][2] += 1
-    loaded_database[name][0] = np.sum(loaded_database[name][1], axis = 1)/loaded_database[name][2]
+    loaded_database[name][0] = np.sum(loaded_database[name][1], axis = 0)/loaded_database[name][2]
 
     with open("faceworks.pickle", mode="wb") as database:
         pickle.dump(loaded_database, database, protocol=pickle.HIGHEST_PROTOCOL)
