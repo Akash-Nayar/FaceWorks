@@ -36,7 +36,8 @@ def check_for_match(descriptor_vectors):
                 # The difference is compared to the checkpoint value.
                 # If the difference is less than the checkpoint value, match is set to True.
                 # Otherwise, match is false.
-                match = True if (diff < check) else match = False
+                if (diff < check):
+                    match = True
 
                 # If match is true, the descriptor vector is then added to the database for the match.
                 if match:
