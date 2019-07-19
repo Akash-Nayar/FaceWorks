@@ -7,6 +7,9 @@ import mean_face
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
+from dlib_models import download_model, download_predictor, load_dlib_models
+download_model()
+download_predictor()
 from dlib_models import models
 
 from camera import take_picture

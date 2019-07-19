@@ -46,6 +46,8 @@ def check_for_match(descriptor_vectors):
             # If match is true, the descriptor vector is then added to the database for the match.
         if match == True:
             people.append(found[np.argmin(matches)])
+    if match == True:
+        return people
     return "No people found"
 
 
