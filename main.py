@@ -11,4 +11,5 @@ from camera import take_picture
 
 def recognition():
     image = take_picture()
-    check_for_matches(find_faces(image))
+    faces = find_faces(image)
+    check_for_matches(faces)
