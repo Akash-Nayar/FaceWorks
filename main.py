@@ -38,14 +38,20 @@ def recognition():
         # Draw the face landmarks on the screen.
         for i in range(68):
             ax.plot(shape.part(i).x, shape.part(i).y, '+', color=colors[k])
+    return image
 
+
+image = recognition()
+
+def guess(image):
+    colors = ['blue', 'red', 'green', 'purple', 'yellow', 'orange']
     faces = ff.find_faces(image)
     names, descriptors = cm.check_for_match(faces)
     for i, n in enumerate(names):
         answer = input(f"Is the {colors[i]} person's name {n} ")
         if answer.lower() == 'yes':
-            addto_database.update(n, descriptors[i])
-            print(f"Added {name} to database")
+            update_database.update(n, descriptors[i])
+            print(f"Added {n} to database")
         else:
             name = input(f"What is this person's name? ")
             with open("faceworks.pickle", mode="rb") as opened_file:
@@ -60,6 +66,4 @@ def recognition():
             if found == False:
                 addto_database.add_person(descriptors)
                 print(f"Added {name} to database")
-
-
 
