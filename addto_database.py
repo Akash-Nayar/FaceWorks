@@ -8,6 +8,7 @@ Created on Fri Jul 19 09:49:44 2019
 
 def add_person(descriptor):
     import pickle
+    import numpy as np
 
     """Docstring:
         
@@ -27,6 +28,7 @@ def add_person(descriptor):
     #input the name given to the unkown person
     name = input("Please enter a name for this unidentified individual")
 
-    value = [descriptor, [descriptor], 1]
+    #descrips = np.array([descriptor])   // Might not need
+    value = [descriptor, [descrips], 1]
     
     loaded_database.update({name : value})

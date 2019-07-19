@@ -20,7 +20,9 @@ def check_for_match(vectorToCheck):
         database = pickle.load(opened_file)
 
     #First identifies the mean vector in the database
-    for key, value in database:
+
+    #Nicole: Just added the .items() This will allow you to go through assign both the key and value variables
+    for key, value in database.items():
         meanVector = value[0]
 
         #Subtracts the mean vector from the database from  vectorToCheck.This value is squared.
