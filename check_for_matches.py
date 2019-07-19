@@ -4,7 +4,7 @@ def check_for_match(vectorToCheck):
     vectors are similar, then it is concluded to be a match. Matched descriptor vectors are
     added for people. If the vector is unknown, then a new person is added to the database.
     :param vectorToCheck: numpy.ndarray of size (128,)
-    :return: match: boolean, True if there is a match, False if there is not a match
+    :return: matchPerson: str, tells you the name of the match. Returns "unknown" if the person is not in the database.
     """
     import numpy as np
     import mean_face as mf
@@ -47,15 +47,16 @@ def check_for_match(vectorToCheck):
             #The database is then updated accordingly
             database.update({key: value})
 
-            break
+            matchPerson = "Your match is " + str(key)
+            return matchPerson
 
     # If the match is false, a new person is created in the database.
     if not match:
         addb.add_to_database(vectorToCheck)
 
-    #Returns match
-    return match
-
+    #Returns unknown
+    matchPerson = "Your match is Unknown."
+    return matchPerson
 
 
 

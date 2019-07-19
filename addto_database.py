@@ -4,10 +4,12 @@ Created on Fri Jul 19 09:49:44 2019
 
 @author: nicol
 """
-import pickle
+#import pickle
 
-def add_to_database(descriptor):
-     """Docstring:
+def add_person(descriptor):
+    import pickle
+
+    """Docstring:
         
         Parameters:
             The descriptor that uniquely identitifies the image taken
@@ -24,7 +26,7 @@ def add_to_database(descriptor):
         
     #input the name given to the unkown person
     name = input("Please enter a name for this unidentified individual")
-    
+
     value = [descriptor, [descriptor], 1]
     
     loaded_database.update({name : value})
