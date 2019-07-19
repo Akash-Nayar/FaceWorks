@@ -21,6 +21,7 @@ def check_for_match(descriptor_vectors):
         database = pickle.load(opened_file)
     people = []
     found = []
+    matching_dvs = []
     d_vectors = descriptor_vectors
 
     for dv in d_vectors:
@@ -46,8 +47,9 @@ def check_for_match(descriptor_vectors):
             # If match is true, the descriptor vector is then added to the database for the match.
         if match == True:
             people.append(found[np.argmin(matches)])
+            matching_dvs.append(dv)
     if match == True:
-        return people
+        return people, matching_dvs
     return "No people found"
 
 
