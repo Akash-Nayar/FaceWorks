@@ -22,7 +22,7 @@ def add_person(descriptor):
     """
     
     # unpickling a dictionary
-    with open("faceworks.pkl", mode="rb") as database:
+    with open("faceworks.pickle", mode="rb") as database:
         loaded_database = pickle.load(database)
         
     #input the name given to the unkown person
@@ -31,5 +31,5 @@ def add_person(descriptor):
     #descrips = np.array([descriptor])   // Might not need
     value = [descriptor, [descriptor], 1]
 
-    with open("faceworks.pkl", mode="rb") as database:
+    with open("faceworks.pickle", mode="rb") as database:
         loaded_database.update({name : value})
